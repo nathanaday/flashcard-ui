@@ -1,0 +1,42 @@
+{
+  "name": "flashcards",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:server": "tsx watch server/index.ts",
+    "dev:all": "concurrently \"npm run dev:server\" \"npm run dev\"",
+    "build": "tsc -b && vite build",
+    "start": "tsx server/index.ts",
+    "import:dp": "tsx server/import-dp.ts",
+    "seed:dp": "node -e \"const fs=require('fs');const data=fs.readFileSync('dp-problems.json','utf-8');fetch('http://localhost:3001/api/dp/seed',{method:'POST',headers:{'Content-Type':'application/json'},body:data}).then(r=>r.json()).then(console.log)\""
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.6.2",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "katex": "^0.16.44",
+    "lucide-react": "^0.577.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.13.1",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0",
+    "tsx": "^4.21.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/katex": "^0.16.8",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "concurrently": "^9.2.1",
+    "typescript": "~5.9.3",
+    "vite": "^7.3.1"
+  }
+}
