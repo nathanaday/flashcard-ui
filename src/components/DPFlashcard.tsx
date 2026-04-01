@@ -11,9 +11,10 @@ interface DPFlashcardProps {
   isFlipped: boolean;
   onFlip: () => void;
   stageLabel?: string;  // e.g. "Stage 1: Recognize the Category"
+  slug?: string;        // problem source identifier
 }
 
-export function DPFlashcard({ front, back, isFlipped, onFlip, stageLabel }: DPFlashcardProps) {
+export function DPFlashcard({ front, back, isFlipped, onFlip, stageLabel, slug }: DPFlashcardProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Reset scroll position when card flips
@@ -42,6 +43,7 @@ export function DPFlashcard({ front, back, isFlipped, onFlip, stageLabel }: DPFl
       <div className={`dp-flashcard-inner ${isFlipped ? 'flipped' : ''}`}>
         <div className="dp-flashcard-face dp-flashcard-front" aria-hidden={isFlipped}>
           <div className="dp-flashcard-label">Problem</div>
+          {slug && <div className="dp-flashcard-slug">{slug}</div>}
           <div className="dp-flashcard-content markdown-content">
             <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>
               {front}

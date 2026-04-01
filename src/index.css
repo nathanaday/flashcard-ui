@@ -306,6 +306,35 @@ a {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Dark mode */
+[data-theme="dark"] {
+  --color-background: #13141A;
+  --color-surface: #1E1F27;
+  --color-text-primary: #E4E6ED;
+  --color-text-secondary: #9DA3B4;
+  --color-text-muted: #6B7185;
+  --color-border: #2C2E38;
+  --color-accent-blue: #5C6BFF;
+  --color-accent-blue-hover: #6E7BFF;
+  --color-accent-blue-light: #1E2245;
+  --color-accent-cyan: #26D0E4;
+  --color-accent-purple: #9488FF;
+  --color-accent-orange-dark: #F0A030;
+  --color-accent-green: #34C87E;
+  --color-accent-green-light: #152E22;
+  --color-accent-red: #FF7A5E;
+  --color-accent-red-light: #2E1A15;
+  --color-button-chip-bg: #252730;
+  --color-button-chip-hover: #2E3040;
+  --color-icon-default: #6B7185;
+  --color-icon-hover: #9DA3B4;
+
+  --shadow-card: 0 2px 6px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  --shadow-flashcard: 0 4px 16px rgba(0, 0, 0, 0.25), 0 1px 4px rgba(0, 0, 0, 0.15);
+  --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-dropdown: 0 8px 24px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

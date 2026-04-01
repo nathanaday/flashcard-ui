@@ -176,6 +176,7 @@ export function DPStudySession() {
                   isFlipped={session.isFlipped}
                   onFlip={session.flip}
                   stageLabel={STAGE_LABELS[stage]}
+                  slug={session.currentCard.slug}
                 />
               )}
 

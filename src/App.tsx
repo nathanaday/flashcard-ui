@@ -5,18 +5,23 @@ import { CardEditor } from './components/CardEditor.js';
 import { DPDashboard } from './components/DPDashboard.js';
 import { DPStudySession } from './components/DPStudySession.js';
 import { DPCategoryGuide } from './components/DPCategoryGuide.js';
+import { ThemeProvider } from './context/ThemeContext.js';
+import { GlobalThemeToggle } from './components/GlobalThemeToggle.js';
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<SetList />} />
-        <Route path="/sets/:id" element={<StudySession />} />
-        <Route path="/sets/:id/edit" element={<CardEditor />} />
-        <Route path="/dp" element={<DPDashboard />} />
-        <Route path="/dp/study/:stage" element={<DPStudySession />} />
-        <Route path="/dp/categories" element={<DPCategoryGuide />} />
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <GlobalThemeToggle />
+        <Routes>
+          <Route path="/" element={<SetList />} />
+          <Route path="/sets/:id" element={<StudySession />} />
+          <Route path="/sets/:id/edit" element={<CardEditor />} />
+          <Route path="/dp" element={<DPDashboard />} />
+          <Route path="/dp/study/:stage" element={<DPStudySession />} />
+          <Route path="/dp/categories" element={<DPCategoryGuide />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }

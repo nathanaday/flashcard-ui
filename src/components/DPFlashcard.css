@@ -44,6 +44,18 @@
   color: var(--color-text-muted);
 }
 
+.dp-flashcard-slug {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-accent-blue);
+  background: var(--color-accent-blue-light);
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+}
+
 .dp-flashcard-content {
   font-size: 15px;
   line-height: 1.65;
