@@ -1,4 +1,16 @@
-# Quickstart
+# Flashcard UI
+
+Supports any and all flashcard needs, but currently tailored for studying Dynamic Programming problems. 90 categorized problems are pre-seeded.
+
+<img width="800" alt="Screenshot 2026-04-01 at 10 37 03 AM" src="https://github.com/user-attachments/assets/925c9c58-f45d-418c-bcd9-b504e84e1f51" />
+
+<img width="800" alt="Screenshot 2026-04-01 at 10 37 09 AM" src="https://github.com/user-attachments/assets/429c3d2f-e550-462e-ac53-296ed30a26ae" />
+
+<img width="800" alt="Screenshot 2026-04-01 at 10 37 17 AM" src="https://github.com/user-attachments/assets/1af78fc4-7196-4811-9368-f9c1dc470f79" />
+
+<img width="800" alt="Screenshot 2026-04-01 at 10 37 23 AM" src="https://github.com/user-attachments/assets/09c23c7e-f15d-4665-9915-afde7b6c8088" />
+
+
 
 ## Prerequisites
 
