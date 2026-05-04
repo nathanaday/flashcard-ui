@@ -1,5 +1,6 @@
 import type { StudySet, Card } from '../types/index.js';
 import type { DPProblemWithStats, DPProblem, DPStudyCard, DPCategory } from '../types/dp.js';
+import type { FamilyStats, NetworkingStudyCard, NetworkingFamily, AttemptResult } from '../types/networking.js';
 
 const BASE = '/api';
 
@@ -52,4 +53,14 @@ export const api = {
       body: JSON.stringify({ problem_id: problemId, stage, result }),
     }),
   getDPCategories: () => request<DPCategory[]>('/dp/categories'),
+
+  // Networking endpoints
+  getNetworkingFamilies: () => request<FamilyStats[]>('/networking/families'),
+  getNetworkingStudy: (family: NetworkingFamily, count = 10) =>
+    request<NetworkingStudyCard[]>(`/networking/study/${family}?count=${count}`),
+  recordNetworkingAttempt: (family: NetworkingFamily, generator: string, result: AttemptResult) =>
+    request<{ id: number }>('/networking/attempts', {
+      method: 'POST',
+      body: JSON.stringify({ family, generator, result }),
+    }),
 };

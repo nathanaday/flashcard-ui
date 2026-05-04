@@ -5,6 +5,8 @@ import { CardEditor } from './components/CardEditor.js';
 import { DPDashboard } from './components/DPDashboard.js';
 import { DPStudySession } from './components/DPStudySession.js';
 import { DPCategoryGuide } from './components/DPCategoryGuide.js';
+import { NetworkingDashboard } from './components/NetworkingDashboard.js';
+import { NetworkingStudySession } from './components/NetworkingStudySession.js';
 import { ThemeProvider } from './context/ThemeContext.js';
 import { GlobalThemeToggle } from './components/GlobalThemeToggle.js';
 
@@ -20,6 +22,8 @@ export default function App() {
           <Route path="/dp" element={<DPDashboard />} />
           <Route path="/dp/study/:stage" element={<DPStudySession />} />
           <Route path="/dp/categories" element={<DPCategoryGuide />} />
+          <Route path="/networking" element={<NetworkingDashboard />} />
+          <Route path="/networking/study/:family" element={<NetworkingStudySession />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

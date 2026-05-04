@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url';
 import setsRouter from './routes/sets.js';
 import cardsRouter from './routes/cards.js';
 import dpRouter from './routes/dp.js';
+import networkingRouter from './routes/networking.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -16,6 +17,7 @@ app.use(express.json({ limit: '5mb' }));
 app.use('/api/sets', setsRouter);
 app.use('/api', cardsRouter);
 app.use('/api/dp', dpRouter);
+app.use('/api/networking', networkingRouter);
 
 const distPath = path.join(__dirname, '..', 'dist');
 app.use(express.static(distPath));

@@ -51,6 +51,16 @@ db.exec(`
   );
 
   CREATE INDEX IF NOT EXISTS idx_dp_attempts_problem_stage ON dp_attempts(problem_id, stage);
+
+  CREATE TABLE IF NOT EXISTS networking_attempts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    family TEXT NOT NULL,
+    generator TEXT NOT NULL,
+    result TEXT NOT NULL CHECK (result IN ('correct', 'incorrect')),
+    attempted_at TEXT DEFAULT (datetime('now'))
+  );
+
+  CREATE INDEX IF NOT EXISTS idx_networking_attempts_family ON networking_attempts(family, generator);
 `);
 
 export default db;
