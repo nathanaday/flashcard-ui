@@ -1,6 +1,7 @@
 import type { StudySet, Card } from '../types/index.js';
 import type { DPProblemWithStats, DPProblem, DPStudyCard, DPCategory } from '../types/dp.js';
 import type { FamilyStats, NetworkingStudyCard, NetworkingFamily, AttemptResult } from '../types/networking.js';
+import type { ExamQuestionWithStats, ExamStudyCard, ExamAttemptResult } from '../types/exam.js';
 
 const BASE = '/api';
 
@@ -62,5 +63,18 @@ export const api = {
     request<{ id: number }>('/networking/attempts', {
       method: 'POST',
       body: JSON.stringify({ family, generator, result }),
+    }),
+
+  // Exam endpoints
+  getExamQuestions: (slug: string) =>
+    request<ExamQuestionWithStats[]>(`/exam/${slug}/questions`),
+  getExamStudy: (slug: string, source?: string) => {
+    const params = source ? `?source=${encodeURIComponent(source)}` : '';
+    return request<ExamStudyCard[]>(`/exam/${slug}/study${params}`);
+  },
+  recordExamAttempt: (questionId: number, result: ExamAttemptResult) =>
+    request<{ id: number }>('/exam/attempts', {
+      method: 'POST',
+      body: JSON.stringify({ question_id: questionId, result }),
     }),
 };

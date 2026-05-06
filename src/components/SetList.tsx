@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Plus, Pencil, Trash2, Layers, Brain, Network } from 'lucide-react';
+import { Plus, Pencil, Trash2, Layers, Brain, Network, GraduationCap } from 'lucide-react';
 import { useSets } from '../hooks/useSets.js';
 import { CreateSetDialog } from './CreateSetDialog.js';
 import { ConfirmDialog } from './ConfirmDialog.js';
@@ -81,6 +81,37 @@ export function SetList() {
         <div>
           <div style={{ fontSize: '17px', fontWeight: 700, marginBottom: '2px' }}>EE450 Networking</div>
           <div style={{ fontSize: '14px', opacity: 0.85 }}>IP addressing, subnetting, and CIDR drills</div>
+        </div>
+      </Link>
+
+      {/* EE450 Final Exam Banner */}
+      <Link
+        to="/exam/ee450"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 'var(--space-xl)',
+          background: 'linear-gradient(135deg, var(--color-accent-orange-dark), var(--color-accent-red))',
+          color: '#FFFFFF',
+          borderRadius: 'var(--radius-xl)',
+          padding: 'var(--space-xl) var(--space-2xl)',
+          marginBottom: 'var(--space-3xl)',
+          boxShadow: 'var(--shadow-flashcard)',
+          transition: 'transform var(--transition-fast), box-shadow var(--transition-base)',
+        }}
+        onMouseEnter={e => {
+          e.currentTarget.style.transform = 'translateY(-2px)';
+          e.currentTarget.style.boxShadow = 'var(--shadow-hover)';
+        }}
+        onMouseLeave={e => {
+          e.currentTarget.style.transform = 'translateY(0)';
+          e.currentTarget.style.boxShadow = 'var(--shadow-flashcard)';
+        }}
+      >
+        <GraduationCap size={32} />
+        <div>
+          <div style={{ fontSize: '17px', fontWeight: 700, marginBottom: '2px' }}>EE450 Final Exam</div>
+          <div style={{ fontSize: '14px', opacity: 0.85 }}>True/false and multiple-choice review questions</div>
         </div>
       </Link>
 

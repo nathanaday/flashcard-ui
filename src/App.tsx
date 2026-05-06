@@ -7,6 +7,8 @@ import { DPStudySession } from './components/DPStudySession.js';
 import { DPCategoryGuide } from './components/DPCategoryGuide.js';
 import { NetworkingDashboard } from './components/NetworkingDashboard.js';
 import { NetworkingStudySession } from './components/NetworkingStudySession.js';
+import { ExamDashboard } from './components/ExamDashboard.js';
+import { ExamStudySession } from './components/ExamStudySession.js';
 import { ThemeProvider } from './context/ThemeContext.js';
 import { GlobalThemeToggle } from './components/GlobalThemeToggle.js';
 
@@ -24,6 +26,8 @@ export default function App() {
           <Route path="/dp/categories" element={<DPCategoryGuide />} />
           <Route path="/networking" element={<NetworkingDashboard />} />
           <Route path="/networking/study/:family" element={<NetworkingStudySession />} />
+          <Route path="/exam/:slug" element={<ExamDashboard />} />
+          <Route path="/exam/:slug/study" element={<ExamStudySession />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

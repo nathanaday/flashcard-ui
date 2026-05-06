@@ -61,6 +61,29 @@ db.exec(`
   );
 
   CREATE INDEX IF NOT EXISTS idx_networking_attempts_family ON networking_attempts(family, generator);
+
+  CREATE TABLE IF NOT EXISTS exam_questions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    exam_slug TEXT NOT NULL,
+    source_file TEXT NOT NULL,
+    question_number INTEGER NOT NULL,
+    question_type TEXT NOT NULL CHECK (question_type IN ('tf', 'mc')),
+    question_text TEXT NOT NULL,
+    answer TEXT NOT NULL,
+    explanation TEXT NOT NULL,
+    UNIQUE (exam_slug, source_file, question_number)
+  );
+
+  CREATE INDEX IF NOT EXISTS idx_exam_questions_slug ON exam_questions(exam_slug);
+
+  CREATE TABLE IF NOT EXISTS exam_attempts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    question_id INTEGER NOT NULL REFERENCES exam_questions(id) ON DELETE CASCADE,
+    result TEXT NOT NULL CHECK (result IN ('correct', 'incorrect')),
+    attempted_at TEXT DEFAULT (datetime('now'))
+  );
+
+  CREATE INDEX IF NOT EXISTS idx_exam_attempts_question ON exam_attempts(question_id);
 `);
 
 export default db;
